@@ -2,36 +2,54 @@
 // Co-authored by : BaaaaaaaaaaarkingDog
 // http://boj.kr/d98aedfde0e444509de83f1a21c8ef7e
 #include <bits/stdc++.h>
-using namespace std;
-#define X first
-#define Y second
+#include <algorithm>
 
-int main(void) {
-  ios::sync_with_stdio(0);
-  cin.tie(0);
-  while (true) {
-    int n;
-    cin >> n;
-    if (n == 0) break;
-    stack<pair<int, int>> S;
-    long long ans = 0;
-    for (int i = 0; i < n; i++) {
-      int h;
-      cin >> h;
-      int idx = i;
-      while (!S.empty() && S.top().X >= h) {
-        ans = max(ans, 1LL * (i - S.top().Y) * S.top().X);
-        idx = S.top().Y;
-        S.pop();
-      }
-      S.push({h, idx});
+#define ll long long
+#define x first
+#define y second
+
+using namespace std;
+
+void print(stack<pair<int,int>> s){
+    while (!s.empty()){
+        cout << s.top().x << ' ' << s.top().y << '|';
+        s.pop();
     }
-    while (!S.empty()) {
-      ans = max(ans, 1LL * (n - S.top().Y) * S.top().X);
-      S.pop();
+    cout << '\n';
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    while(true){
+        int n;
+        cin >> n;
+        if (!n) break;
+        stack<pair<int,int>> s; // (높이, 해당 높이가 최초로 등장한 위치), 높이에 대한 monotone stack(오름차순 스택)으로 관리
+        ll ans = 0;
+
+        for(int i=0; i<n; i++){
+            int h;
+            cin >>h;
+            int idx = i; //해당 높이가 최초로 등장한 위치
+
+            while (!s.empty()&&s.top().x >= h){
+                ans = max(ans, 1LL * (i-s.top().y)*s.top().x);
+                idx = s.top().y;
+                s.pop();
+            }
+            s.push({h, idx});
+            print(s);
+        }
+        while (!s.empty()){
+            ans = max(ans, 1LL * (n-s.top().y)*s.top().x);
+            s.pop();
+            print(s);
+        }
+        cout << ans << '\n';
     }
-    cout << ans << '\n';
-  }
+
 }
 
 /*
