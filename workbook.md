@@ -31,7 +31,7 @@
 | 0x03 | ✔ | [배열](workbook/0x03.md) |
 | 0x04 | ✔ | [연결 리스트](workbook/0x04.md) |
 | 0x05 | ✔ | [스택](workbook/0x05.md) |
-| 0x06 | | [큐](workbook/0x06.md) |
+| 0x06 | ✔ | [큐](workbook/0x06.md) |
 | 0x07 | | [덱](workbook/0x07.md) |
 | 0x08 | | [스택의 활용(수식의 괄호 쌍)](workbook/0x08.md) |
 | 0x09 | | [BFS](workbook/0x09.md) |
