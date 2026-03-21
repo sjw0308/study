@@ -32,8 +32,8 @@
 | 0x04 | ✔ | [연결 리스트](workbook/0x04.md) |
 | 0x05 | ✔ | [스택](workbook/0x05.md) |
 | 0x06 | ✔ | [큐](workbook/0x06.md) |
-| 0x07 | | [덱](workbook/0x07.md) |
-| 0x08 | | [스택의 활용(수식의 괄호 쌍)](workbook/0x08.md) |
+| 0x07 | ✔ | [덱](workbook/0x07.md) |
+| 0x08 | ✔ | [스택의 활용(수식의 괄호 쌍)](workbook/0x08.md) |
 | 0x09 | | [BFS](workbook/0x09.md) |
 | 0x0A | | DFS (문제집 X) | |
 | 0x0B | | [재귀](workbook/0x0B.md) |
@@ -43,6 +43,9 @@
 | 0x0F | | [정렬 II](workbook/0x0F.md) |
 | 0x10 | | [다이나믹 프로그래밍](workbook/0x10.md) |
 | 0x11 | | [그리디](workbook/0x11.md) |
+| Appendix A | | [문자열 기초](workbook/Appendix%20A.md) |
+| Appendix B | | 동적 배열 (문제집 X) | |
+| Appendix C | | [비트마스킹](workbook/Appendix%20C.md) |
 | 0x12 | | [수학](workbook/0x12.md) |
 | 0x13 | | [이분탐색](workbook/0x13.md) |
 | 0x14 | | [투 포인터](workbook/0x14.md) |
@@ -57,8 +60,5 @@
 | 0x1D | | [다익스트라 알고리즘](workbook/0x1D.md) |
 | 0x1E | | [KMP](workbook/0x1E.md) |
 | 0x1F | | [트라이](workbook/0x1F.md) |
-| Appendix A | | [문자열 기초](workbook/Appendix%20A.md) |
-| Appendix B | | 동적 배열 (문제집 X) | |
-| Appendix C | | [비트마스킹](workbook/Appendix%20C.md) |
 | Appendix D | | [Union-Find](workbook/Appendix%20D.md) |
 | Appendix E | | [다이나믹 프로그래밍 심화](workbook/Appendix%20E.md) |
