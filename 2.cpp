@@ -7,14 +7,15 @@
 
 using namespace std;
 
+// const int MX = 1505;
 // int dx[4] = {1,0,-1,0};
 // int dy[4] = {0,1,0,-1};
-// int  b[105][105]; 
-// int vi[105][105]; 
+// int  b[MX][MX]; 
+// bool vi[MX][MX];
 // int n, m;
 
-int vi[2][500005];
-int d[2] = {1,-1};
+int vi[1000005];
+// int d[2] = {1,-1};
 
 
 
@@ -22,32 +23,43 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     
-    int n, k;
-    cin >> n >> k;
-    queue<pair<int,int>> q;
-    for (int i =0; i<2; i++) fill(vi[i], vi[i]+500004,-1);
-    vi[0][n] = 0;
-    q.push({n,0});
+    int n, mx; 
+    cin >> mx >> n;
+
+    vector<int> start {};
+
+    while(n--){
+        int tmp;
+        cin >> tmp;
+        start.push_back(tmp);
+    }
+
+    fill(vi, vi+mx+2, -1);
+
+    queue<int> q;
+    for(auto e: start){
+        vi[e] = 0;
+        q.push(e);
+    }
+
     while(!q.empty()){
         auto cur = q.front();
         q.pop();
-        int time = cur.y + 1;
-        for(int nx: {cur.x+1, cur.x-1, cur.x*2}){
-            if(nx <0 || nx > 500000) continue;
-            if(vi[time%2][nx] != -1) continue;
-            vi[time%2][nx] = time;
-            q.push({nx,time});
+        for(int k{}; k<31; ++k){
+            int next;
+            if(cur & (1 << k)) next = cur & ~(1 << k);
+            else next = cur | (1 << k);
+            if(next > mx) continue;
+            if(vi[next] >= 0) continue;
+            vi[next] = vi[cur]  +1;
+            q.push(next);
         }
     }
 
-    int t=0, target = k;
-    while(target<=500000){
-        if(vi[t%2][target]<=t && vi[t%2][target]!=-1) {
-            cout << t;
-            return 0;
-        }
-        target += ++t;
+    int ans = 0;
+    for(int i{}; i<=mx; ++i){
+        ans = max(ans, vi[i]);
     }
-    cout << -1;
-
+    cout << ans;
+    
 }

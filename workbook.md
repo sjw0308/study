@@ -34,7 +34,7 @@
 | 0x06 | ✔ | [큐](workbook/0x06.md) |
 | 0x07 | ⭐ | [덱](workbook/0x07.md) |
 | 0x08 | ✔ | [스택의 활용(수식의 괄호 쌍)](workbook/0x08.md) |
-| 0x09 | | [BFS](workbook/0x09.md) |
+| 0x09 | ⭐ | [BFS](workbook/0x09.md) |
 | 0x0A | | DFS (문제집 X) | |
 | 0x0B | | [재귀](workbook/0x0B.md) |
 | 0x0C | | [백트래킹](workbook/0x0C.md) |
