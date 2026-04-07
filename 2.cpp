@@ -7,59 +7,35 @@
 
 using namespace std;
 
-// const int MX = 1505;
-// int dx[4] = {1,0,-1,0};
-// int dy[4] = {0,1,0,-1};
-// int  b[MX][MX]; 
-// bool vi[MX][MX];
-// int n, m;
+bool bo[7100][7100];
 
-int vi[1000005];
-// int d[2] = {1,-1};
-
-
+void func(int a, int b, int c, int d){
+    if(c-a == 2){
+        for(int i=0; i<5; ++i) bo[i+a][b] = 1;
+        bo[c][d] = 1;
+        bo[c-1][d+1] = 1;
+        bo[c+1][d+1] = 1;
+        return;
+    }
+    int h = (c-a)/2;
+    func(a,b,a+h,b-h);
+    func(a+h+1, b-h-1, c, d);
+    func(c+1,b, 1+c+h, b-h);
+}
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    
-    int n, mx; 
-    cin >> mx >> n;
 
-    vector<int> start {};
+    int n; 
+    cin >> n;
+    func(0,n-1,n-1,0);
 
-    while(n--){
-        int tmp;
-        cin >> tmp;
-        start.push_back(tmp);
-    }
-
-    fill(vi, vi+mx+2, -1);
-
-    queue<int> q;
-    for(auto e: start){
-        vi[e] = 0;
-        q.push(e);
-    }
-
-    while(!q.empty()){
-        auto cur = q.front();
-        q.pop();
-        for(int k{}; k<31; ++k){
-            int next;
-            if(cur & (1 << k)) next = cur & ~(1 << k);
-            else next = cur | (1 << k);
-            if(next > mx) continue;
-            if(vi[next] >= 0) continue;
-            vi[next] = vi[cur]  +1;
-            q.push(next);
+    for(int i=0; i<n; ++i){
+        for(int j=0; j<n*2; ++j){
+            if(bo[j][i]) cout << '*';
+            else cout << ' ';
         }
+        cout << '\n';
     }
-
-    int ans = 0;
-    for(int i{}; i<=mx; ++i){
-        ans = max(ans, vi[i]);
-    }
-    cout << ans;
-    
 }
