@@ -37,7 +37,7 @@
 | 0x09 | ⭐ | [BFS](workbook/0x09.md) |
 | 0x0A | ✔ | DFS (문제집 X) | |
 | 0x0B | ⭐ | [재귀](workbook/0x0B.md) |
-| 0x0C | | [백트래킹](workbook/0x0C.md) |
+| 0x0C | ⭐ | [백트래킹](workbook/0x0C.md) |
 | 0x0D | | [시뮬레이션](workbook/0x0D.md) |
 | 0x0E | | [정렬 I](workbook/0x0E.md) |
 | 0x0F | | [정렬 II](workbook/0x0F.md) |
