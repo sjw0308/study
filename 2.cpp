@@ -10,39 +10,28 @@ int dy[4] = {0,1,0,-1};
 using namespace std;
 
 int n, m;
-ll ans = LLONG_MAX;
-vector<vector<int>> bo(55,vector<int>(55,0));
-vector<pair<int,int>> chi, house;
+const int mod = 123456789;
+ll dp[63];
 
-ll calc(vector<int> v){
-    ll ret = 0;
-    for (auto h: house){
-        int tmp=INT32_MAX;
-        for(int i=0; i<(int)v.size(); ++i){
-            if(v[i] == 0) tmp = min(tmp, abs(h.x-chi[i].x)+abs(h.y-chi[i].y));
-        }
-        ret += (ll)tmp;
-    }
-    return ret;
-
+void print(){
+    for (int i=0; i<n; ++i) cout << dp[i] << ' ';
+    cout << '\n';
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     
-    cin >> n >> m;
-    for(int i=0; i<n; ++i){
-        for(int j=0; j<n; ++j){
-            cin >> bo[i][j];
-            if(bo[i][j] == 1) house.push_back({i,j});
-            if(bo[i][j] == 2) chi.push_back({i,j});
-        }
+    cin >> n;
+    dp[1] = 1;
+    dp[2] = 1;
+    if(n<3){
+        cout << dp[n];
+        return 0;
     }
-    vector<int> combi(chi.size(),1);
-    for(int i=0; i<m; ++i) combi[i] = 0; // 0이면 살릴 치킨집
-    do{
-        ans = min(ans, calc(combi));
-    }while(next_permutation(combi.begin(), combi.end()));
-    cout << ans;
+    for(int i=3; i<=n; ++i){
+        dp[i] = 1;
+        for(int j=1; j<=i-2; ++j) dp[i] += 2*dp[j];
+    }
+    cout << dp[n];
 }
